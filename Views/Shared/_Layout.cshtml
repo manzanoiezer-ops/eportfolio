@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Iezer Joshua S. Manzano | Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js" defer></script>
+    <script src="~/js/hero-scene.js" defer></script>
+</head>
+<body class="@(ViewData["Title"]?.ToString() == "Home" ? "home-page" : "")">
+    <header class="site-header">
+        <nav class="site-nav">
+            <a class="brand" asp-controller="Home" asp-action="Index">Iezer Joshua S. Manzano</a>
+            <div class="links">
+                <a asp-controller="Home" asp-action="Index">Home</a>
+                <a asp-controller="Projects" asp-action="Index">Projects</a>
+                <a asp-controller="Home" asp-action="About">About</a>
+                <a asp-controller="Home" asp-action="Contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="site-main">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; @DateTime.Now.Year Iezer Joshua S. Manzano. Built with ASP.NET Core + PostgreSQL.</p>
+    </footer>
+</body>
+</html>

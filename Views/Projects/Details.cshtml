@@ -1,0 +1,91 @@
+@model Project
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<article class="case-study">
+    @if (!string.IsNullOrEmpty(Model.CoverImage))
+    {
+        <img class="case-study-banner" src="@Model.CoverImage" alt="@Model.Title cover" />
+    }
+    <h1>@Model.Title</h1>
+    <p class="summary">@Model.Summary</p>
+
+    <div class="tags">
+        @foreach (var tech in Model.TechStack)
+        {
+            <span class="tag">@tech</span>
+        }
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.EmbedUrl))
+    {
+        <div class="embed-frame">
+            <iframe src="@Model.EmbedUrl" title="@Model.Title live demo" allowfullscreen></iframe>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.Problem))
+    {
+        <h2>Problem</h2>
+        <p>@Model.Problem</p>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.RoleAndStack))
+    {
+        <h2>Role &amp; Stack</h2>
+        <p>@Model.RoleAndStack</p>
+    }
+
+    @if (Model.Highlights.Any())
+    {
+        <h2>Technical Highlights</h2>
+        <ul>
+            @foreach (var item in Model.Highlights)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    }
+
+    @if (Model.Challenges.Any())
+    {
+        <h2>Challenges Solved</h2>
+        <ul>
+            @foreach (var item in Model.Challenges)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.Result))
+    {
+        <h2>Result</h2>
+        <p>@Model.Result</p>
+    }
+
+    @if (Model.GalleryImages.Any())
+    {
+        <h2>Gallery</h2>
+        <div class="case-study-gallery">
+            @foreach (var img in Model.GalleryImages)
+            {
+                <a href="@img" target="_blank" class="case-study-gallery-item">
+                    <img src="@img" alt="@Model.Title screenshot" loading="lazy" />
+                </a>
+            }
+        </div>
+    }
+
+    <div class="links">
+        @if (!string.IsNullOrEmpty(Model.RepoUrl))
+        {
+            <a href="@Model.RepoUrl" target="_blank">View Code</a>
+        }
+        @if (!string.IsNullOrEmpty(Model.DemoUrl))
+        {
+            <a href="@Model.DemoUrl" target="_blank">Live Demo</a>
+        }
+    </div>
+</article>

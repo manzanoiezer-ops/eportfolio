@@ -1,0 +1,28 @@
+@model List<Project>
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<section class="projects-grid">
+    <h1>Projects</h1>
+    <div class="grid">
+        @foreach (var project in Model)
+        {
+            <div class="project-card">
+                @if (!string.IsNullOrEmpty(project.CoverImage))
+                {
+                    <img class="card-image" src="@project.CoverImage" alt="@project.Title cover" />
+                }
+                <h3>@project.Title</h3>
+                <p>@project.Summary</p>
+                <div class="tags">
+                    @foreach (var tech in project.TechStack)
+                    {
+                        <span class="tag">@tech</span>
+                    }
+                </div>
+                <a asp-controller="Projects" asp-action="Details" asp-route-slug="@project.Slug">View details</a>
+            </div>
+        }
+    </div>
+</section>
