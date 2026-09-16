@@ -61,11 +61,118 @@
     </div>
 </section>
 
+<section class="whoami">
+    <div class="whoami-inner">
+        <div class="whoami-photo reveal reveal-left">
+            <img src="~/images/profile/headshot.jpg" alt="Iezer Joshua S. Manzano" />
+        </div>
+        <div class="whoami-content reveal reveal-right d1">
+            <h2>Who Am I</h2>
+            <p class="whoami-lead">
+                I'm a full-stack developer who builds software by mastering every layer that powers it. Handling a project end-to-end from PostgreSQL schemas and ASP.NET backend logic to interactive Three.js and A-Frame interfaces isn't just about versatility for me. It's how I gain complete architectural clarity and build stronger connective tissue across the whole stack.
+            </p>
+            <p>
+                Currently, I apply this hands-on approach as a Computer Programmer I at PHilMech (Philippine Center for Postharvest Development and Mechanization). I'm building a Virtual Biobank for Stored Product Arthropods, combining a robust data warehouse with a fully explorable 3D museum. Managing both the underlying data structure and the walkable visual environment allows me to treat backend data integrity and 3D web performance as two sides of the exact same system.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="stack">
+    <h2>Skills &amp; Tools</h2>
+    <div class="stack-grid">
+        <div class="stack-group reveal reveal-zoom">
+            <span class="stack-group-label">Backend &amp; data</span>
+            <div class="stack-chips">
+                <div class="stack-chip"><span class="stack-mark">A#</span><span class="stack-name">ASP.NET Core</span></div>
+                <div class="stack-chip"><span class="stack-mark">Pg</span><span class="stack-name">PostgreSQL</span></div>
+                <div class="stack-chip"><span class="stack-mark">My</span><span class="stack-name">MySQL</span></div>
+                <div class="stack-chip"><span class="stack-mark">Php</span><span class="stack-name">PHP</span></div>
+            </div>
+        </div>
+        <div class="stack-group reveal reveal-zoom d1">
+            <span class="stack-group-label">3D &amp; WebXR</span>
+            <div class="stack-chips">
+                <div class="stack-chip"><span class="stack-mark">3js</span><span class="stack-name">Three.js</span></div>
+                <div class="stack-chip"><span class="stack-mark">A-F</span><span class="stack-name">A-Frame</span></div>
+            </div>
+        </div>
+        <div class="stack-group reveal reveal-zoom d2">
+            <span class="stack-group-label">Frontend</span>
+            <div class="stack-chips">
+                <div class="stack-chip"><span class="stack-mark">H5</span><span class="stack-name">HTML5</span></div>
+                <div class="stack-chip"><span class="stack-mark">C3</span><span class="stack-name">CSS3</span></div>
+                <div class="stack-chip"><span class="stack-mark">JS</span><span class="stack-name">JavaScript</span></div>
+            </div>
+        </div>
+        <div class="stack-group reveal reveal-zoom d3">
+            <span class="stack-group-label">Systems</span>
+            <div class="stack-chips">
+                <div class="stack-chip"><span class="stack-mark">Lx</span><span class="stack-name">Linux (CentOS, Ubuntu)</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"><span class="mark"></span></div>
+
+<section class="services">
+    <h2>What I Do</h2>
+    <div class="grid">
+        <div class="project-card reveal reveal-flip">
+            <h3>Full-Stack Web Systems</h3>
+            <p>Backend logic, schema design, and data-driven platforms built on ASP.NET Core, PostgreSQL, MySQL, and PHP.</p>
+        </div>
+        <div class="project-card reveal reveal-flip d1">
+            <h3>Interactive 3D &amp; WebXR</h3>
+            <p>Walkable, explorable 3D experiences built with Three.js and A-Frame &mdash; from museum tours to visual data exploration.</p>
+        </div>
+        <div class="project-card reveal reveal-flip d2">
+            <h3>Deployment &amp; Systems</h3>
+            <p>Setting up and maintaining reliable environments on Linux (CentOS, Ubuntu), from server configuration to hosting the finished platform.</p>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"><span class="mark"></span></div>
+
+<section class="showcase">
+    <div class="showcase-inner">
+        <div class="showcase-copy reveal reveal-left">
+            <h2>See It Up Close</h2>
+            <p>
+                A live, interactive scan of <em>Sitophilus&nbsp;oryzae</em> (rice weevil) &mdash; one of the
+                specimens catalogued in the Virtual Biobank. Same model, same rendering pipeline that powers
+                the full
+                <a asp-controller="Projects" asp-action="Details" asp-route-slug="virtual-biobanking">museum tour</a>,
+                just dropped straight into this page.
+            </p>
+            <p class="showcase-hint">Drag to rotate &middot; Scroll to zoom</p>
+            <button id="showcase-rotate-toggle" class="btn btn-outline showcase-toggle" type="button">Auto-rotate</button>
+        </div>
+        <div class="showcase-viewer reveal reveal-pop d1">
+            <div id="showcase-frame" class="showcase-frame">
+                <canvas id="showcase-canvas"></canvas>
+                <div id="showcase-loader" class="showcase-loader">Loading specimen&hellip;</div>
+                <div class="showcase-plaque">
+                    <span class="plaque-eyebrow">Specimen</span>
+                    <span class="plaque-name">Sitophilus oryzae</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"><span class="mark"></span></div>
+
 <section class="featured">
     <h2>Featured Project</h2>
+    @{ var i = 0; }
     @foreach (var project in Model)
     {
-        <div class="featured-card">
+        var delayClass = i % 3 == 0 ? "" : i % 3 == 1 ? "d1" : "d2";
+        i++;
+        <div class="featured-card reveal reveal-skew @delayClass">
             @if (!string.IsNullOrEmpty(project.CoverImage))
             {
                 <img class="card-image" src="@project.CoverImage" alt="@project.Title cover" />

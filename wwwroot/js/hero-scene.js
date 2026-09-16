@@ -8,8 +8,8 @@
 // Falls back to a simple wireframe specimen box if the model can't load.
 (function () {
     var MODEL_URL = window.HERO_MODEL_URL || '/models/sitophilus_oryzae.glb';
-    var ACCENT = 0xb8842b;
-    var FILL = 0x3f5738;
+    var ACCENT = 0xd9a143; // matches --pop in site.css
+    var FILL = 0xd9a143;   // matches --pop in site.css
 
     function init() {
         var canvas = document.getElementById('hero-scene');
@@ -83,16 +83,16 @@
             var trayGeo = new THREE.BoxGeometry(2.4, 0.35, 1.6);
             group.add(new THREE.LineSegments(
                 new THREE.EdgesGeometry(trayGeo),
-                new THREE.LineBasicMaterial({ color: 0x3f5738, transparent: true, opacity: 0.85 })
+                new THREE.LineBasicMaterial({ color: 0x8fae7c, transparent: true, opacity: 0.85 })
             ));
-            group.add(new THREE.Mesh(trayGeo, new THREE.MeshBasicMaterial({ color: 0xece4d3, transparent: true, opacity: 0.5 })));
+            group.add(new THREE.Mesh(trayGeo, new THREE.MeshBasicMaterial({ color: 0x212b42, transparent: true, opacity: 0.5 })));
 
             var hinge = new THREE.Object3D();
             hinge.position.set(0, 0.175, -0.8);
             group.add(hinge);
             var lidGeo = new THREE.BoxGeometry(2.4, 0.04, 1.6);
             lidGeo.translate(0, 0, 0.8);
-            var lid = new THREE.LineSegments(new THREE.EdgesGeometry(lidGeo), new THREE.LineBasicMaterial({ color: 0xb8842b, transparent: true, opacity: 0.9 }));
+            var lid = new THREE.LineSegments(new THREE.EdgesGeometry(lidGeo), new THREE.LineBasicMaterial({ color: 0xd9a143, transparent: true, opacity: 0.9 }));
             hinge.add(lid);
             hinge.rotation.x = -0.55;
 

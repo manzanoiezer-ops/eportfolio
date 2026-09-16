@@ -4,11 +4,14 @@
 }
 
 <section class="projects-grid">
-    <h1>Projects</h1>
+    <h1 class="reveal reveal-left">Projects</h1>
     <div class="grid">
+        @{ var i = 0; }
         @foreach (var project in Model)
         {
-            <div class="project-card">
+            var delayClass = i % 3 == 0 ? "" : i % 3 == 1 ? "d1" : "d2";
+            i++;
+            <div class="project-card reveal reveal-zoom @delayClass">
                 @if (!string.IsNullOrEmpty(project.CoverImage))
                 {
                     <img class="card-image" src="@project.CoverImage" alt="@project.Title cover" />

@@ -18,9 +18,7 @@ C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\scopedcss\bundle\EPortfolio.styles.css
-C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\d8dipmk705-{0}-vsqm1m2432-vsqm1m2432.gz
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\w29bc9w4mg-{0}-5ne0qfvzhq-5ne0qfvzhq.gz
-C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\0dsqrm8dt2-{0}-gfu7epviqg-gfu7epviqg.gz
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\staticwebassets.development.json
@@ -31,3 +29,8 @@ C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\refint\EPortfolio.dll
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\EPortfolio.pdb
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\EPortfolio.genruntimeconfig.cache
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\ref\EPortfolio.dll
+C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\EPortfolio.sourcelink.json
+C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\0dsqrm8dt2-{0}-nqkk86kj3a-nqkk86kj3a.gz
+C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\dpph458g9z-{0}-zt2uf33idi-zt2uf33idi.gz
+C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\4z38u3pp51-{0}-q6wcjrd4di-q6wcjrd4di.gz
+C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\d8dipmk705-{0}-x4tngs1afc-x4tngs1afc.gz

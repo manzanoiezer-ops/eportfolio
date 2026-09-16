@@ -1,14 +1,15 @@
 :root {
-    --bg: #F3EFE6;
-    --surface: #FFFFFF;
-    --surface-2: #ECE4D3;
-    --ink: #211B13;
-    --muted: #6E6355;
-    --accent: #B8842B;
-    --accent-2: #3F5738;
-    --border: #E1D7C2;
-    --tag-bg: #ECE9DC;
-    --tag-text: #3F5738;
+    --bg: #12192B;
+    --surface: #1B2438;
+    --surface-2: #212B42;
+    --ink: #F3EFE6;
+    --muted: #9AA3B8;
+    --accent: #D9A143;
+    --accent-2: #8FAE7C;
+    --border: #38456B;
+    --tag-bg: #1B2438;
+    --tag-text: #D9A143;
+    --pop: #D9A143;
 }
 
 * { box-sizing: border-box; }
@@ -118,14 +119,14 @@ h1, h2, h3 {
 .hero-tag-chip {
     position: absolute;
     z-index: 2;
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: #F3EFE6;
+    border: 1px solid rgba(20, 16, 8, 0.15);
     border-radius: 999px;
     padding: 0.4rem 0.9rem;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
-    color: var(--accent-2);
-    box-shadow: 0 6px 16px rgba(33, 27, 19, 0.08);
+    color: #2F4A2A;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     white-space: nowrap;
 }
 
@@ -133,11 +134,15 @@ h1, h2, h3 {
     top: 6%;
     left: 5%;
     transform: rotate(-14deg);
+    background: var(--accent-2);
+    color: var(--bg);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 .hero-tag-chip.chip-b {
     bottom: 6%;
     right: 2%;
     transform: rotate(-4deg);
+    color: #A63D2F;
 }
 
 /* Oversized type */
@@ -191,12 +196,19 @@ h1, h2, h3 {
     font-weight: 600;
     font-size: 1.05rem;
 }
-.btn:hover { opacity: 0.9; }
+.btn:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--pop) 35%, transparent);
+}
 
 .btn-outline {
     background: transparent;
     border: 1px solid var(--border);
     color: var(--ink);
+}
+.btn-outline:hover {
+    border-color: var(--pop);
+    color: var(--pop);
 }
 
 /* Vertical social icon rail */
@@ -221,10 +233,10 @@ h1, h2, h3 {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.78rem;
     font-weight: 600;
-    color: var(--accent-2);
+    color: var(--ink);
     text-decoration: none;
 }
-.social-rail a:hover { border-color: var(--accent-2); }
+.social-rail a:hover { border-color: var(--ink); }
 .social-rail a svg { display: block; }
 
 .scroll-cue {
@@ -239,7 +251,7 @@ h1, h2, h3 {
 .scroll-icon {
     width: 18px;
     height: 28px;
-    border: 1.5px solid var(--muted);
+    border: 1.5px solid var(--pop);
     border-radius: 10px;
     position: relative;
 }
@@ -250,7 +262,7 @@ h1, h2, h3 {
     left: 50%;
     width: 3px;
     height: 6px;
-    background: var(--muted);
+    background: var(--pop);
     border-radius: 2px;
     transform: translateX(-50%);
     animation: scrollDot 1.6s infinite ease;
@@ -316,10 +328,198 @@ h1, h2, h3 {
     .social-rail { top: clamp(4rem, 10vh, 7rem); }
 }
 
+/* Who Am I (landing page storyboard section) */
+.whoami {
+    background: var(--surface-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 4.5rem 2.5rem;
+}
+
+.whoami-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.whoami-photo {
+    flex: 0 0 auto;
+}
+.whoami-photo img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: var(--surface);
+    border: 1px solid var(--accent-2);
+}
+
+.whoami-content { flex: 1; min-width: 0; }
+.whoami-content h2 { font-size: 1.9rem; }
+.whoami-content h3 {
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+.whoami-content p {
+    font-size: 1.05rem;
+    max-width: 65ch;
+    margin: 0 0 1.25rem;
+}
+.whoami-lead {
+    color: var(--muted);
+    font-size: 1.2rem;
+}
+
+@media (max-width: 700px) {
+    .whoami { padding: 3rem 1.5rem; }
+    .whoami-inner { flex-direction: column; align-items: center; text-align: center; }
+    .whoami-content p { margin-left: auto; margin-right: auto; }
+    .skills-list { justify-content: center; }
+    .stack-chips { align-items: center; }
+    .stack { padding: 3rem 0; text-align: center; }
+    .stack-group-label { text-align: center; }
+}
+
 /* Featured project + cards */
-.featured h2 {
+.featured h2,
+.services h2 {
     font-size: 1.9rem;
     margin-bottom: 1.75rem;
+}
+
+/* Scroll reveal (see scroll-reveal.js) — JS toggles ".in-view" on anything
+   with the base ".reveal" class. A section picks ONE variant class to add
+   alongside it (reveal-left / reveal-right / reveal-zoom / reveal-flip /
+   reveal-pop / reveal-clip) so different parts of the page animate in
+   differently as you scroll. ".d1/.d2/.d3" still stagger any variant. */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal.d1 { transition-delay: 0.08s; }
+.reveal.d2 { transition-delay: 0.16s; }
+.reveal.d3 { transition-delay: 0.24s; }
+.reveal.d4 { transition-delay: 0.32s; }
+
+/* Slide in from the left */
+.reveal-left {
+    transform: translate3d(-64px, 0, 0);
+}
+.reveal-left.in-view {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Slide in from the right */
+.reveal-right {
+    transform: translate3d(64px, 0, 0);
+}
+.reveal-right.in-view {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Scale up gently while fading in */
+.reveal-zoom {
+    transform: scale(0.86);
+    transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-zoom.in-view {
+    transform: scale(1);
+}
+
+/* Pop in with a slight overshoot bounce — good for a single focal element */
+.reveal-pop {
+    transform: scale(0.55);
+    transition: opacity 0.5s ease, transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.reveal-pop.in-view {
+    transform: scale(1);
+}
+
+/* Tip down into place like a hinged card */
+.reveal-flip {
+    transform: perspective(900px) rotateX(-24deg) translateY(24px);
+    transform-origin: top center;
+    transition: opacity 0.7s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-flip.in-view {
+    transform: perspective(900px) rotateX(0) translateY(0);
+}
+
+/* Wipe reveal via clip-path instead of opacity/transform — a sharper, more
+   graphic entrance for standout blocks like case-study cards */
+.reveal-clip {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.reveal-clip.in-view {
+    clip-path: inset(0 0 0 0);
+}
+
+/* Rise up with a slight shear — a transform-only effect (no clip-path),
+   safe to use on elements that live inside a 3D/perspective context like
+   the featured-card grid (clip-path + preserve-3d/perspective is a known
+   Chromium bug that can make the element disappear entirely) */
+.reveal-skew {
+    transform: translateY(46px) skewY(3deg);
+    transform-origin: left top;
+    transition: opacity 0.7s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-skew.in-view {
+    transform: translateY(0) skewY(0deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-zoom,
+    .reveal-pop,
+    .reveal-flip,
+    .reveal-clip,
+    .reveal-skew {
+        transition: none;
+    }
+}
+
+/* Landing-page section rhythm */
+.services {
+    padding: 4.5rem 0;
+}
+.featured {
+    padding-top: 4.5rem;
+}
+
+.section-divider {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.section-divider::before,
+.section-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+.section-divider .mark {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-2);
+    border: 1px solid var(--border);
+    transform: rotate(45deg);
+    flex-shrink: 0;
 }
 
 .featured-card, .project-card {
@@ -401,6 +601,107 @@ h1, h2, h3 {
 }
 .featured-card a:hover, .project-card a:hover { text-decoration: underline; }
 
+/* Interactive 3D Showcase */
+.showcase { padding: 4.5rem 0; }
+
+.showcase-inner {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.showcase-copy { flex: 1; min-width: 280px; }
+.showcase-copy h2 { font-size: 1.9rem; margin-bottom: 1rem; }
+.showcase-copy p { color: var(--muted); font-size: 1.05rem; max-width: 46ch; }
+.showcase-copy a { color: var(--accent-2); }
+
+.showcase-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin: 1.25rem 0 1.5rem;
+}
+
+.showcase-toggle {
+    padding: 0.65rem 1.4rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+.showcase-toggle.active { border-color: var(--accent-2); color: var(--accent-2); }
+
+.showcase-viewer { flex: 1; min-width: 280px; }
+
+.showcase-frame {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    max-width: 460px;
+    margin: 0 auto;
+    background: radial-gradient(circle at 50% 38%, var(--surface-2), var(--bg) 78%);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.showcase-frame canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: grab;
+    touch-action: none;
+}
+.showcase-frame canvas:active { cursor: grabbing; }
+
+.showcase-loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--muted);
+    background: var(--bg);
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+.showcase-loader-hidden { opacity: 0; }
+
+.showcase-plaque {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 0.6rem 1.4rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    pointer-events: none;
+}
+.showcase-plaque .plaque-eyebrow {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+}
+.showcase-plaque .plaque-name {
+    display: block;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+}
+
+@media (max-width: 860px) {
+    .showcase-inner { flex-direction: column; text-align: center; }
+    .showcase-copy p { margin-left: auto; margin-right: auto; }
+}
+
 /* Case study */
 .embed-frame { margin: 1.5rem 0; }
 .embed-frame iframe {
@@ -456,6 +757,73 @@ h1, h2, h3 {
     transition: transform 0.2s ease;
 }
 .case-study-gallery-item:hover img { transform: scale(1.04); }
+
+/* Tech stack grid — its own section between Who Am I and What I Do, at
+   full section width (not squeezed into the whoami flex column). Each
+   category is a self-contained card sized to its own content (align-items:
+   start), so an uneven chip count between categories can't stretch the
+   shorter cards and leave dead space beneath them. */
+.stack { padding: 4.5rem 0; }
+.stack h2 { font-size: 1.9rem; margin-bottom: 1.75rem; }
+
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.stack-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.3rem 1.5rem 1.5rem;
+}
+
+.stack-group-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.9rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.stack-chips { display: flex; flex-direction: column; gap: 0.7rem; }
+
+.stack-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    transition: transform 0.15s ease;
+}
+.stack-chip:hover { transform: translateX(3px); }
+.stack-chip:hover .stack-mark { border-color: var(--accent); }
+
+.stack-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: border-color 0.15s ease;
+}
+
+.stack-name { font-size: 0.95rem; color: var(--ink); white-space: nowrap; }
+
+@media (max-width: 640px) {
+    .stack-grid { grid-template-columns: 1fr; }
+}
 
 /* About / Contact */
 .skills-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
@@ -516,6 +884,56 @@ h1, h2, h3 {
     font-weight: 500;
 }
 .facecard-links a:hover { text-decoration: underline; }
+
+/* Contact page */
+.contact-inner { max-width: 620px; }
+
+.contact-lead {
+    color: var(--muted);
+    font-size: 1.15rem;
+    max-width: 52ch;
+    margin-bottom: 2rem;
+}
+
+.contact-cta { margin-bottom: 2.5rem; }
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.contact-link:hover { border-color: var(--accent-2); transform: translateX(4px); }
+
+.contact-link svg { flex-shrink: 0; color: var(--accent); }
+
+.contact-link strong { display: block; font-size: 1.02rem; font-weight: 600; }
+.contact-link small {
+    display: block;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    margin-top: 0.15rem;
+}
+
+.contact-footnote {
+    margin-top: 2.25rem;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
 
 /* Footer */
 .site-footer {

@@ -6,12 +6,12 @@
 <article class="case-study">
     @if (!string.IsNullOrEmpty(Model.CoverImage))
     {
-        <img class="case-study-banner" src="@Model.CoverImage" alt="@Model.Title cover" />
+        <img class="case-study-banner reveal reveal-zoom" src="@Model.CoverImage" alt="@Model.Title cover" />
     }
-    <h1>@Model.Title</h1>
-    <p class="summary">@Model.Summary</p>
+    <h1 class="reveal reveal-left">@Model.Title</h1>
+    <p class="summary reveal reveal-left d1">@Model.Summary</p>
 
-    <div class="tags">
+    <div class="tags reveal d2">
         @foreach (var tech in Model.TechStack)
         {
             <span class="tag">@tech</span>
@@ -20,27 +20,27 @@
 
     @if (!string.IsNullOrEmpty(Model.EmbedUrl))
     {
-        <div class="embed-frame">
+        <div class="embed-frame reveal reveal-pop">
             <iframe src="@Model.EmbedUrl" title="@Model.Title live demo" allowfullscreen></iframe>
         </div>
     }
 
     @if (!string.IsNullOrEmpty(Model.Problem))
     {
-        <h2>Problem</h2>
-        <p>@Model.Problem</p>
+        <h2 class="reveal reveal-left">Problem</h2>
+        <p class="reveal reveal-left d1">@Model.Problem</p>
     }
 
     @if (!string.IsNullOrEmpty(Model.RoleAndStack))
     {
-        <h2>Role &amp; Stack</h2>
-        <p>@Model.RoleAndStack</p>
+        <h2 class="reveal reveal-right">Role &amp; Stack</h2>
+        <p class="reveal reveal-right d1">@Model.RoleAndStack</p>
     }
 
     @if (Model.Highlights.Any())
     {
-        <h2>Technical Highlights</h2>
-        <ul>
+        <h2 class="reveal reveal-flip">Technical Highlights</h2>
+        <ul class="reveal reveal-flip d1">
             @foreach (var item in Model.Highlights)
             {
                 <li>@item</li>
@@ -50,8 +50,8 @@
 
     @if (Model.Challenges.Any())
     {
-        <h2>Challenges Solved</h2>
-        <ul>
+        <h2 class="reveal reveal-flip">Challenges Solved</h2>
+        <ul class="reveal reveal-flip d1">
             @foreach (var item in Model.Challenges)
             {
                 <li>@item</li>
@@ -61,24 +61,27 @@
 
     @if (!string.IsNullOrEmpty(Model.Result))
     {
-        <h2>Result</h2>
-        <p>@Model.Result</p>
+        <h2 class="reveal reveal-zoom">Result</h2>
+        <p class="reveal reveal-zoom d1">@Model.Result</p>
     }
 
     @if (Model.GalleryImages.Any())
     {
-        <h2>Gallery</h2>
+        <h2 class="reveal">Gallery</h2>
         <div class="case-study-gallery">
+            @{ var gi = 0; }
             @foreach (var img in Model.GalleryImages)
             {
-                <a href="@img" target="_blank" class="case-study-gallery-item">
+                var gDelay = gi % 3 == 0 ? "" : gi % 3 == 1 ? "d1" : "d2";
+                gi++;
+                <a href="@img" target="_blank" class="case-study-gallery-item reveal reveal-clip @gDelay">
                     <img src="@img" alt="@Model.Title screenshot" loading="lazy" />
                 </a>
             }
         </div>
     }
 
-    <div class="links">
+    <div class="links reveal reveal-pop">
         @if (!string.IsNullOrEmpty(Model.RepoUrl))
         {
             <a href="@Model.RepoUrl" target="_blank">View Code</a>
