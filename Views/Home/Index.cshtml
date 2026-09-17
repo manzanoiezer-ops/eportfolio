@@ -3,7 +3,7 @@
     ViewData["Title"] = "Home";
 }
 
-<section class="hero">
+<section class="hero snap-section">
     <h1 class="hero-heading">
         <span class="line-regular">Full-Stack Developer.</span>
         <span class="line-bold">Virtual World Builder.</span>
@@ -61,7 +61,7 @@
     </div>
 </section>
 
-<section class="whoami">
+<section class="whoami snap-section">
     <div class="whoami-inner">
         <div class="whoami-photo reveal reveal-left">
             <img src="~/images/profile/headshot.jpg" alt="Iezer Joshua S. Manzano" />
@@ -78,7 +78,7 @@
     </div>
 </section>
 
-<section class="stack">
+<section class="stack snap-section">
     <h2>Skills &amp; Tools</h2>
     <div class="stack-grid">
         <div class="stack-group reveal reveal-zoom">
@@ -116,7 +116,7 @@
 
 <div class="section-divider" aria-hidden="true"><span class="mark"></span></div>
 
-<section class="services">
+<section class="services snap-section">
     <h2>What I Do</h2>
     <div class="grid">
         <div class="project-card reveal reveal-flip">
@@ -136,7 +136,7 @@
 
 <div class="section-divider" aria-hidden="true"><span class="mark"></span></div>
 
-<section class="showcase">
+<section class="showcase snap-section">
     <div class="showcase-inner">
         <div class="showcase-copy reveal reveal-left">
             <h2>See It Up Close</h2>
@@ -151,7 +151,7 @@
             <button id="showcase-rotate-toggle" class="btn btn-outline showcase-toggle" type="button">Auto-rotate</button>
         </div>
         <div class="showcase-viewer reveal reveal-pop d1">
-            <div id="showcase-frame" class="showcase-frame">
+            <div id="showcase-frame" class="showcase-frame" data-lenis-prevent-wheel>
                 <canvas id="showcase-canvas"></canvas>
                 <div id="showcase-loader" class="showcase-loader">Loading specimen&hellip;</div>
                 <div class="showcase-plaque">
@@ -165,7 +165,7 @@
 
 <div class="section-divider" aria-hidden="true"><span class="mark"></span></div>
 
-<section class="featured">
+<section class="featured snap-section">
     <h2>Featured Project</h2>
     @{ var i = 0; }
     @foreach (var project in Model)

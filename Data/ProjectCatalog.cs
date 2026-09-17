@@ -40,7 +40,7 @@ namespace EPortfolio.Data
                 RepoUrl = null,   // add your GitHub link
                 DemoUrl = null,
                 EmbedUrl = null,  // fill in once the A-Frame museum is publicly hosted
-                CoverImage = "/images/projects/virtual-biobanking/frontpage.png",
+                CoverImage = "/images/projects/virtual-biobanking/room1.png",
                 GalleryImages = new List<string>
                 {
                     "/images/projects/virtual-biobanking/room1.png",

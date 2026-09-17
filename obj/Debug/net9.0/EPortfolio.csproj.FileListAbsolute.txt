@@ -31,6 +31,6 @@ C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\EPortfolio.genruntimeconfig
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\ref\EPortfolio.dll
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\EPortfolio.sourcelink.json
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\0dsqrm8dt2-{0}-nqkk86kj3a-nqkk86kj3a.gz
-C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\dpph458g9z-{0}-zt2uf33idi-zt2uf33idi.gz
 C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\4z38u3pp51-{0}-q6wcjrd4di-q6wcjrd4di.gz
-C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\d8dipmk705-{0}-x4tngs1afc-x4tngs1afc.gz
+C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\d8dipmk705-{0}-gfwdhifh13-gfwdhifh13.gz
+C:\Users\admin\Documents\eportfolio\obj\Debug\net9.0\compressed\dpph458g9z-{0}-csn26v1rx1-csn26v1rx1.gz
